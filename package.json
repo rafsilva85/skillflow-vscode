@@ -1,0 +1,83 @@
+{
+  "name": "skillflow-vscode",
+  "displayName": "SkillFlow - AI Skills Marketplace",
+  "description": "Browse, search, and install AI agent skills from SkillFlow directly in VS Code",
+  "version": "0.1.0",
+  "publisher": "skillflow",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other",
+    "Machine Learning"
+  ],
+  "keywords": [
+    "ai",
+    "skills",
+    "agents",
+    "mcp",
+    "marketplace",
+    "automation"
+  ],
+  "activationEvents": [
+    "onCommand:skillflow.search",
+    "onCommand:skillflow.browse",
+    "onView:skillflow-explorer"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "skillflow.search",
+        "title": "SkillFlow: Search Skills"
+      },
+      {
+        "command": "skillflow.browse",
+        "title": "SkillFlow: Browse Marketplace"
+      },
+      {
+        "command": "skillflow.install",
+        "title": "SkillFlow: Install Skill"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "skillflow-explorer",
+          "title": "SkillFlow",
+          "icon": "media/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "skillflow-explorer": [
+        {
+          "id": "skillflow-trending",
+          "name": "Trending Skills"
+        },
+        {
+          "id": "skillflow-installed",
+          "name": "Installed Skills"
+        },
+        {
+          "id": "skillflow-search",
+          "name": "Search"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.3.0",
+    "@vscode/vsce": "^2.22.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rafsilva85/skillflow-vscode"
+  }
+}
